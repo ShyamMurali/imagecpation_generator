@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
       duration: 1000,
       splash: 'assets/images/icon.png',
       nextScreen: HomePage(),
-      splashTransition: SplashTransition.rotationTransition,
+      splashTransition: SplashTransition.fadeTransition,
     );
   }
 }
