@@ -23,11 +23,6 @@ class _HomePageState extends State<HomePage> {
   final picker = ImagePicker();
   String caption="No image selected";
 
-
- 
-
-
-
   @override
 
 
@@ -36,7 +31,7 @@ class _HomePageState extends State<HomePage> {
  if( image != null){
     String base64Image = await base64Encode(image!.readAsBytesSync());
 
-    print(base64Image);
+    //print(base64Image);
     print("1");
     setState(() {
       caption="Generating Caption...";
@@ -46,50 +41,47 @@ class _HomePageState extends State<HomePage> {
 
     var url = Uri.parse('https://imagecaption2021.herokuapp.com/');
 
-    Map <String, dynamic> requestpayload = await {
+    Map <String, dynamic> requestpayload =  {
       'image': base64Image
     };
-    print(requestpayload);
+    //print(requestpayload);
 
     print("2");
 
-    final response = await http.post(
-      url,
-      body: jsonEncode(requestpayload),
+    try{
 
-      headers: {'Content-Type': "application/json"},
-    );
-
-    print(response);
-
-
-    print('StatusCode : ${response.statusCode}');
-    print('Return Data : ${response.body}');
-
-    if(response.statusCode == 503){
-      setState(() {
-        caption = "Timed out ";
-      });
-    }
-
-
-
-
-    if (response.statusCode == 200){
-      final parsedJson = jsonDecode(response.body);
+      final response = await http.post(
+        url,
+        body: jsonEncode(requestpayload),
+        headers: {'Content-Type': "application/json"},
+      );
+      print(response);
+      print('StatusCode : ${response.statusCode}');
       print('Return Data : ${response.body}');
-      setState(() {
-        final description = parsedJson["description"];
-        caption=description;
-      });
+
+      if(response.statusCode == 503){
+        setState(() {
+          caption = "Timed out ";
+        });
+        print("retrying");
+        //_uploadImage();
+      }
+      if (response.statusCode == 200){
+        final parsedJson = jsonDecode(response.body);
+        print('Return Data : ${response.body}');
+        setState(() {
+          final description = parsedJson["description"];
+          caption=description;
+        });
+      }
+    }catch(e){
+      print(e.toString());
     }
+
  }
   else {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Pick an Image before Uploading.'),));
   }
-
-
-
   }
 
   _chooseFromGallery(BuildContext context) async {
