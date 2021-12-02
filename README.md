@@ -8,7 +8,7 @@ Screenshots <br>
  2. **Upload the image**<br>  
   <img src="screenshots/clickupload.jpg" align="left" height="400" width="200" >
  3.**Obtain the caption as well as the audio**<br>
-  <img src="screenshots/captionformed.jpg" align="left" height="400" width="200">
+  <img src="screenshots/captionformed.jpg" align="left" height="400" width="200"><br>
  Similar Screenshots<br>
   <img src="screenshots/anotherexample.jpg" align="left" height="400" width="200">
   
