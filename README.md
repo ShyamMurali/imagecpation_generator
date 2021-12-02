@@ -10,7 +10,7 @@ Screenshots <br>
 3.Obtain the caption as well as the audio<br>
 <img src="screenshots/captionformed.jpg" align="center" height="400" width="200"><br>
 Similar Screenshots<br>
-<img src="screenshots/anotherexample.jpg" align="center" height="400" width="200"><br>
-<img src="screenshots/example.jpg" align="center" height="400" width="200"><br>
-<img src="screenshots/example2.jpg" align="center" height="400" width="200"><br>
+<img src="screenshots/anotherexample.jpg" align="center" height="400" width="200">
+<img src="screenshots/example.jpg" align="center" height="400" width="200"><
+<img src="screenshots/example2.jpg" align="center" height="400" width="200">
  
